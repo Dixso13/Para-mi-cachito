@@ -59,18 +59,75 @@ st.markdown("""
         border: 1px solid #FF69B4 !important; background-color: white !important; margin-top: 10px !important; width: 100%;
     }
 
-    .collage-wrapper { display: flex; flex-direction: column; align-items: center; gap: 25px; z-index: 1; }
-    .fila { display: flex; justify-content: center; gap: 40px; }
-    .foto-card { background: white; padding: 15px 15px 45px 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.2); width: 280px; text-align: center; }
-    .foto-card img { width: 100%; height: 350px; object-fit: cover; }
-    .foto-card p { margin-top: 15px; font-family: 'Comic Sans MS', cursive; font-size: 15px; color: #444; font-weight: bold; }
-    
-    .f1 { transform: rotate(-4deg); } .f2 { transform: rotate(4deg); } .f3 { transform: rotate(-2deg); } .f4 { transform: rotate(5deg); }
+    /* --- COLLAGE RESPONSIVE --- */
+    .collage-wrapper { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 25px; 
+        z-index: 1; 
+        width: 100%;
+    }
+
+    .fila { 
+        display: flex; 
+        justify-content: center; 
+        gap: 30px; 
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .foto-card { 
+        background: white; 
+        padding: 15px 15px 45px 15px; 
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
+        width: 90%;
+        max-width: 320px;
+        text-align: center; 
+    }
+
+    .foto-card img { 
+        width: 100%; 
+        height: auto; 
+        aspect-ratio: 3/4;
+        object-fit: cover; 
+        border-radius: 8px;
+    }
+
+    .foto-card p { 
+        margin-top: 15px; 
+        font-family: 'Comic Sans MS', cursive; 
+        font-size: 15px; 
+        color: #444; 
+        font-weight: bold; 
+    }
+
+    .f1 { transform: rotate(-4deg); } 
+    .f2 { transform: rotate(4deg); } 
+    .f3 { transform: rotate(-2deg); } 
+    .f4 { transform: rotate(5deg); }
+
+    /* Ajuste para celular */
+    @media (max-width: 768px) {
+        .fila {
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .foto-card {
+            width: 85%;
+            max-width: 340px;
+        }
+    }
     
     @keyframes heartbeat {
-        0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); }
+        0% { transform: scale(1); } 
+        50% { transform: scale(1.1); } 
+        100% { transform: scale(1); }
     }
     </style>
+
     <div class="decoracion" style="left:5%; font-size:35px; animation-duration:6s;">❤️</div>
     <div class="decoracion" style="left:50%; font-size:40px; animation-duration:14s;">🌹</div>
     <div class="decoracion" style="left:85%; font-size:32px; animation-duration:8s;">💖</div>
@@ -200,3 +257,4 @@ elif st.session_state.paso == 'final':
             💍✨🌹
         </div>
     """, unsafe_allow_html=True)
+
